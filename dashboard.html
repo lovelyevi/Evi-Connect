@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EviConnect — Find a Professional</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar" id="navbar">
+    <div class="nav-inner container">
+      <a href="index.html" class="logo">Evi<span>Connect</span></a>
+      <nav class="nav-links" id="navLinks">
+        
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="index.html#about" class="nav-link">About</a>
+        <a href="auth.html" class="nav-link">Login</a>
+        <a href="auth.html" class="btn btn-pink nav-cta">Get Started</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== SEARCH BAR SECTION ===== -->
+  <section class="search-section">
+    <div class="container">
+      <div class="search-header">
+        <h1 class="search-title">Find a professional<br/><em>near you</em></h1>
+        <p class="search-sub">Showing verified vendors ready to come to your door.</p>
+      </div>
+
+      <div class="search-bar-card">
+        <div class="search-field">
+          <span class="search-field-icon">📍</span>
+          <div class="search-field-inner">
+            <label>Location</label>
+            <input type="text" id="searchLocation" placeholder="Enter your area..." />
+          </div>
+        </div>
+        <div class="search-divider"></div>
+        <div class="search-field">
+          <span class="search-field-icon">✂️</span>
+          <div class="search-field-inner">
+            <label>Service</label>
+            <select id="searchService" onchange="filterVendors()">
+              <option value="">All services</option>
+              <option value="Barber">Barber</option>
+              <option value="Hairdresser">Hairdresser</option>
+              <option value="Makeup Artist">Makeup Artist</option>
+              <option value="Nail Technician">Nail Technician</option>
+              <option value="Tattoo Artist">Tattoo Artist</option>
+              <option value="Esthetician">Esthetician</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="search-divider"></div>
+        <div class="search-field">
+          <span class="search-field-icon">🕐</span>
+          <div class="search-field-inner">
+            <label>When</label>
+            <input type="text" id="searchTime" placeholder="Today, anytime" />
+          </div>
+        </div>
+        <button class="btn btn-pink search-btn" onclick="filterVendors()">Search</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DASHBOARD BODY ===== -->
+  <section class="dashboard-section section">
+    <div class="container dashboard-layout">
+
+      <!-- Sidebar Filters -->
+      <aside class="filter-sidebar">
+        <div class="filter-block">
+          <h4 class="filter-title">Filter by Service</h4>
+          <div class="filter-options" id="serviceFilters">
+            <label class="filter-chip active" data-service="">
+              <input type="radio" name="serviceFilter" value="" checked hidden />
+              All
+            </label>
+            <label class="filter-chip" data-service="Barber">
+              <input type="radio" name="serviceFilter" value="Barber" hidden />
+              Barber
+            </label>
+            <label class="filter-chip" data-service="Hairdresser">
+              <input type="radio" name="serviceFilter" value="Hairdresser" hidden />
+              Hairdresser
+            </label>
+            <label class="filter-chip" data-service="Makeup Artist">
+              <input type="radio" name="serviceFilter" value="Makeup Artist" hidden />
+              Makeup Artist
+            </label>
+            <label class="filter-chip" data-service="Nail Technician">
+              <input type="radio" name="serviceFilter" value="Nail Technician" hidden />
+              Nail Tech
+            </label>
+            <label class="filter-chip" data-service="Tattoo Artist">
+              <input type="radio" name="serviceFilter" value="Tattoo Artist" hidden />
+              Tattoo Artist
+            </label>
+            <label class="filter-chip" data-service="Esthetician">
+              <input type="radio" name="serviceFilter" value="Esthetician" hidden />
+              Esthetician
+            </label>
+          </div>
+        </div>
+
+        <div class="filter-block">
+          <h4 class="filter-title">Availability</h4>
+          <label class="filter-check">
+            <input type="checkbox" id="availableOnly" onchange="filterVendors()" />
+            Available now only
+          </label>
+        </div>
+
+        <div class="filter-block">
+          <h4 class="filter-title">Min. Rating</h4>
+          <select id="ratingFilter" onchange="filterVendors()">
+            <option value="0">Any rating</option>
+            <option value="4">4★ and above</option>
+            <option value="4.5">4.5★ and above</option>
+          </select>
+        </div>
+      </aside>
+
+      <!-- Vendor Results -->
+      <div class="vendor-results-col">
+        <div class="results-header">
+          <p class="results-count" id="resultsCount">Loading vendors...</p>
+          <select class="sort-select" id="sortSelect" onchange="filterVendors()">
+            <option value="distance">Sort by Distance</option>
+            <option value="rating">Sort by Rating</option>
+            <option value="price">Sort by Price</option>
+          </select>
+        </div>
+
+        <!-- Vendor list rendered by JS -->
+        <div class="vendor-list" id="vendorList">
+          <!-- JS renders here -->
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== VENDOR PROFILE MODAL ===== -->
+  <div class="modal-overlay hidden" id="modalOverlay" onclick="closeModal(event)">
+    <div class="vendor-modal" id="vendorModal">
+      <button class="modal-close" onclick="closeVendorModal()">×</button>
+      <div class="modal-header">
+        <div class="modal-avatar" id="modalAvatar"></div>
+        <div>
+          <h3 id="modalName"></h3>
+          <p id="modalService" class="modal-service-tag"></p>
+          <p id="modalLocation" class="modal-meta"></p>
+        </div>
+      </div>
+      <div class="modal-stats">
+        <div class="modal-stat"><strong id="modalRating"></strong><span>Rating</span></div>
+        <div class="modal-stat"><strong id="modalReviews"></strong><span>Reviews</span></div>
+        <div class="modal-stat"><strong id="modalPrice"></strong><span>Starting price</span></div>
+        <div class="modal-stat"><strong id="modalDistance"></strong><span>Distance</span></div>
+      </div>
+      <p class="modal-bio" id="modalBio"></p>
+      <div class="modal-actions">
+        <button class="btn btn-pink btn-block" onclick="handleBooking()">Book Now</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

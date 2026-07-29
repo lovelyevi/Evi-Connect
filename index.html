@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EviConnect — Beauty & Grooming at Your Doorstep</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Google Fonts: Playfair Display (display) + Poppins (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar" id="navbar">
+    <div class="nav-inner container">
+      <a href="index.html" class="logo">Evi<span>Connect</span></a>
+
+      <!-- Desktop Links -->
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="auth.html" class="nav-link">Login</a>
+        <a href="auth.html" class="btn btn-pink nav-cta">Get Started</a>
+      </nav>
+
+      <!-- Hamburger (mobile) -->
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-bg-blob blob-1"></div>
+    <div class="hero-bg-blob blob-2"></div>
+
+    <div class="container hero-content">
+      <span class="hero-badge">✦ Available in your city</span>
+
+      <h1 class="hero-heading">
+        Book trusted service<br/>
+        <em>professionals near you</em>
+      </h1>
+
+      <p class="hero-subtext">
+        Hairdressers, barbers, makeup artists — at your doorstep.<br/>
+        Quality grooming and beauty services, on your schedule.
+      </p>
+
+      <div class="hero-actions">
+        <a href="auth.html" class="btn btn-pink btn-lg">Get Started</a>
+        <a href="auth.html" class="btn btn-outline btn-lg">Login</a>
+      </div>
+
+      <!-- Soft trust bar -->
+      <div class="hero-trust">
+        <span>⭐ 4.9 average rating</span>
+        <span class="divider">·</span>
+        <span>2,000+ verified vendors</span>
+        <span class="divider">·</span>
+        <span>Same-day booking</span>
+      </div>
+    </div>
+
+    <!-- Hero image / illustration -->
+    <div class="hero-visual">
+      <img src="img/Debor cuts.jpeg">
+    
+    </div>
+  </section>
+
+  <!-- ===== SERVICES GRID ===== -->
+  <section class="services section" id="services">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">What we offer</p>
+        <h2 class="section-title">Services at your door</h2>
+        <p class="section-sub">Professional vendors come to you — no commute, no waiting rooms.</p>
+      </div>
+
+      <div class="services-grid" id="servicesGrid">
+        <!-- Rendered via JS or static fallback -->
+        <div class="service-card">
+          <div class="service-icon">
+            <img src="img/Debor cuts.jpeg" width="400px">
+          </div>
+          <h3 class="service-name">Debor Cuts</h3>
+          <p class="service-sub">Fades, cuts & beard grooming</p>
+          <p class="service-price">From ₦3,000</p>
+          <a href="dashboard.html" class="service-link">Find a barber →</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <img src="img/h.jpg" width="300px">
+          </div>
+          <h3 class="service-name">Hairdresser</h3>
+          <p class="service-sub">Styling, braiding & treatments</p>
+          <p class="service-price">From ₦4,500</p>
+          <a href="dashboard.html" class="service-link">Find a hairdresser →</a>
+        </div>
+
+        <div class="service-card featured">
+          <div class="service-icon">
+            <img src="img/download.jpg">
+          </div>
+          <h3 class="service-name">Makeup Artist</h3>
+          <p class="service-sub">Events, bridal & everyday looks</p>
+          <p class="service-price">From ₦8,000</p>
+          <a href="dashboard.html" class="service-link">Find a MUA →</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <img src="img/serene.jpg">
+          </div>
+          <h3 class="service-name">Serene Nails</h3>
+          <p class="service-sub">Manicure, pedicure & nail art</p>
+          <p class="service-price">From ₦3,500</p>
+          <a href="dashboard.html" class="service-link">Find a nail tech →</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <img src="img/ink master.jpg"> 
+          </div>
+          <h3 class="service-name">Ink Master</h3>
+          <p class="service-sub">Custom ink & body art</p>
+          <p class="service-price">From ₦15,000</p>
+          <a href="dashboard.html" class="service-link">Find an artist →</a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🧖
+            <img src="img/esthetician.jpg">          </div>
+          <h3 class="service-name">Esthetician</h3>
+          <p class="service-sub">Facials, waxing & skincare</p>
+          <p class="service-price">From ₦6,000</p>
+          <a href="dashboard.html" class="service-link">Find an esthetician →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="how-it-works section" id="how">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Simple process</p>
+        <h2 class="section-title">How EviConnect works</h2>
+      </div>
+
+      <div class="steps-row">
+        <div class="step">
+          <div class="step-number">01</div>
+          <div class="step-icon">📍</div>
+          <h3 class="step-title">Set your location</h3>
+          <p class="step-desc">Enter your address or allow location access. We'll find verified vendors near you.</p>
+        </div>
+        <div class="step-connector"></div>
+        <div class="step">
+          <div class="step-number">02</div>
+          <div class="step-icon">🔍</div>
+          <h3 class="step-title">Choose a service</h3>
+          <p class="step-desc">Browse profiles, check ratings and pricing, then pick the professional that suits you.</p>
+        </div>
+        <div class="step-connector"></div>
+        <div class="step">
+          <div class="step-number">03</div>
+          <div class="step-icon">🏠</div>
+          <h3 class="step-title">Book & relax</h3>
+          <p class="step-desc">Confirm your booking. Your vendor arrives at your door — ready to work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY CHOOSE US ===== -->
+  <section class="why-us section" id="about">
+    <div class="container why-grid">
+      <div class="why-text-col">
+        <p class="section-eyebrow">Why EviConnect</p>
+        <h2 class="section-title">Beauty on your<br/><em>terms, at home</em></h2>
+        <p class="why-desc">
+          We built EviConnect because getting a good haircut or flawless makeup shouldn't mean sitting in traffic or waiting in a crowded salon. Every vendor on our platform is verified, rated, and ready to come to you.
+        </p>
+        <a href="auth.html" class="btn btn-pink">Join for free</a>
+      </div>
+
+      <div class="why-features-col">
+        <div class="why-feature">
+          <div class="why-icon">✔️</div>
+          <div>
+            <h4>Verified vendors</h4>
+            <p>Every professional is identity-verified and portfolio-reviewed before joining.</p>
+          </div>
+        </div>
+        <div class="why-feature">
+          <div class="why-icon">⭐</div>
+          <div>
+            <h4>Real ratings & reviews</h4>
+            <p>Genuine feedback from real customers — no fake reviews.</p>
+          </div>
+        </div>
+        <div class="why-feature">
+          <div class="why-icon">🔒</div>
+          <div>
+            <h4>Safe & secure payments</h4>
+            <p>Pay securely through the platform. No cash surprises.</p>
+          </div>
+        </div>
+        <div class="why-feature">
+          <div class="why-icon">⚡</div>
+          <div>
+            <h4>Same-day availability</h4>
+            <p>Many vendors are available for same-day or next-day bookings.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA BANNER ===== -->
+  <section class="cta-banner">
+    <div class="container cta-inner">
+      <h2>Are you a beauty professional?</h2>
+      <p>Join thousands of vendors already earning more with EviConnect.</p>
+      <a href="auth.html" class="btn btn-white">Sign up as a Vendor</a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">Evi<span>Connect</span></a>
+        <p>Connecting beauty professionals to customers, one doorstep at a time.</p>
+      </div>
+
+      <div class="footer-links-group">
+        <h4>Platform</h4>
+        <a href="dashboard.html">Browse Vendors</a>
+        <a href="auth.html">Customer Login</a>
+        <a href="auth.html">Vendor Signup</a>
+      </div>
+
+      <div class="footer-links-group">
+        <h4>Company</h4>
+        <a href="#about">About Us</a>
+        <a href="#">How It Works</a>
+        <a href="#">Safety</a>
+      </div>
+
+      <div class="footer-links-group">
+        <h4>Support</h4>
+        <a href="#">Help Center</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom container">
+      <p>© 2025 EviConnect. All rights reserved.</p>
+      <div class="footer-socials">
+        <a href="#">Instagram</a>
+        <a href="#">Twitter</a>
+        <a href="#">WhatsApp</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
