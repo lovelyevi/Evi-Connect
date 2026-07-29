@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EviConnect — Sign In or Join</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body class="auth-body">
+
+  <!-- Minimal navbar -->
+  <header class="navbar navbar-minimal">
+    <div class="nav-inner container">
+      <a href="index.html" class="logo">Evi<span>Connect</span></a>
+      <a href="index.html" class="btn btn-outline btn-sm">← Back to home</a>
+    </div>
+  </header>
+
+  <!-- ===== AUTH LAYOUT ===== -->
+  <main class="auth-main">
+
+    <!-- Left decorative panel -->
+    <div class="auth-panel">
+      <div class="auth-panel-inner">
+        <div class="auth-panel-blob"></div>
+        <p class="auth-panel-eyebrow">✦ Join EviConnect</p>
+        <h2 class="auth-panel-title">Beauty, delivered<br/><em>to your door</em></h2>
+        <p class="auth-panel-sub">Whether you're booking your next glam session or building your client base — EviConnect has you covered.</p>
+
+        <div class="auth-stats">
+          <div class="auth-stat">
+            <strong>2,000+</strong>
+            <span>Verified vendors</span>
+          </div>
+          <div class="auth-stat">
+            <strong>50K+</strong>
+            <span>Happy customers</span>
+          </div>
+          <div class="auth-stat">
+            <strong>4.9★</strong>
+            <span>Avg. rating</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right form panel -->
+    <div class="auth-form-panel">
+      <div class="auth-form-card">
+
+        <!-- Role Toggle -->
+        <div class="auth-toggle-wrap">
+          <button class="auth-toggle-btn active" id="customerTabBtn" onclick="switchRole('customer')">
+            I'm a Customer
+          </button>
+          <button class="auth-toggle-btn" id="vendorTabBtn" onclick="switchRole('vendor')">
+            I'm a Vendor
+          </button>
+        </div>
+
+        <!-- Tab labels -->
+        <div class="auth-form-header">
+          <h3 id="authTitle">Welcome back</h3>
+          <p id="authSubtitle">Log in to your customer account</p>
+        </div>
+
+        <!-- ===== CUSTOMER FORM ===== -->
+        <form class="auth-form" id="customerForm">
+          <div class="form-group">
+            <label for="custEmail">Email or Phone</label>
+            <input type="text" id="custEmail" placeholder="you@example.com or 08012345678" />
+          </div>
+          <div class="form-group">
+            <label for="custPassword">Password</label>
+            <input type="password" id="custPassword" placeholder="Enter your password" />
+          </div>
+          
+          <div class="form-options">
+            <label class="form-check">
+              <input type="checkbox" /> Remember me
+            </label>
+            <a href="#" class="form-forgot">Forgot password?</a>
+          </div>
+          <button type="button" class="btn btn-pink btn-block" onclick="handleLogin()">Log In</button>
+          <p class="form-switch">Don't have an account? <a href="#" onclick="switchRole('customer'); return false;">Sign up</a></p>
+        </form>
+
+        <!-- ===== VENDOR FORM ===== -->
+        <form class="auth-form hidden" id="vendorForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="vendName">Full Name</label>
+              <input type="text" id="vendName" placeholder="Adaeze Okafor" />
+            </div>
+            <div class="form-group">
+              <label for="vendPhone">Phone Number</label>
+              <input type="tel" id="vendPhone" placeholder="08012345678" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="vendEmail">Email Address</label>
+            <input type="email" id="vendEmail" placeholder="you@example.com" />
+          </div>
+
+          <div class="form-group">
+            <label for="vendService">Service Type</label>
+            <select id="vendService">
+              <option value="" disabled selected>Select your service</option>
+              <option>Barber</option>
+              <option>Hairdresser</option>
+              <option>Makeup Artist</option>
+              <option>Nail Technician</option>
+              <option>Tattoo Artist</option>
+              <option>Esthetician</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="vendLocation">Location / Area</label>
+            <input type="text" id="vendLocation" placeholder="e.g. Lekki Phase 1, Lagos" />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="vendPriceMin">Min Price (₦)</label>
+              <input type="number" id="vendPriceMin" placeholder="3000" />
+            </div>
+            <div class="form-group">
+              <label for="vendPriceMax">Max Price (₦)</label>
+              <input type="number" id="vendPriceMax" placeholder="15000" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="vendPhoto">Profile Photo</label>
+            <div class="file-upload-wrap" id="fileUploadWrap">
+              <input type="file" id="vendPhoto" accept="image/*" onchange="handleFileUpload(event)" />
+              <div class="file-upload-ui">
+                <span class="file-icon"></span>
+                <span id="fileLabel">Click to upload your photo</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group availability-toggle-group">
+            <label>Availability</label>
+            <div class="toggle-row">
+              <label class="toggle-switch">
+                <input type="checkbox" id="vendAvailability" checked />
+                <span class="toggle-track"></span>
+              </label>
+              <span id="availabilityLabel" class="availability-label available">Available now</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="vendPassword">Create Password</label>
+            <input type="password" id="vendPassword" placeholder="Minimum 8 characters" />
+          </div>
+
+          <button type="button" class="btn btn-pink btn-block" onclick="handleVendorSignup()">Create Vendor Account</button>
+          <p class="form-switch">Already have an account? <a href="#" onclick="switchRole('vendor'); return false;">Log in</a></p>
+        </form>
+
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
